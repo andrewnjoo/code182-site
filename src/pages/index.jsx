@@ -1,10 +1,11 @@
 import Head from 'next/head'
 
-import { Faqs } from '@/components/Faqs'
-import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { AboutUs } from '@/components/AboutUs'
+import { Team } from '@/components/Team'
 import { Projects } from '@/components/Projects'
+import { Faqs } from '@/components/Faqs'
+import { Footer } from '@/components/Footer'
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Header />
       <main>
         <AboutUs />
+        <Team />
         <Projects />
         <Faqs />
       </main>
