@@ -8,7 +8,7 @@ import { NavLink } from '@/components/NavLink'
 const socialLinks = [
   {
     name: 'Twitter',
-    href: 'https://twitter.com/adnjoo',
+    href: 'https://twitter.com/thecode182',
     icon: BsTwitter,
   },
   {
