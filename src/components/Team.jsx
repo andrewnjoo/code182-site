@@ -36,7 +36,7 @@ export function Team() {
         >
           {people.map((person) => (
             <li key={person.name}>
-              <div className="flex items-center space-x-4 lg:space-x-6">
+              <div className="flex items-center space-x-4 lg:space-x-6 text-left sm:text-center">
                 <Image
                   src={person.imageUrl}
                   alt="profile picture"
