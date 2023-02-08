@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
 import { Container } from '@/components/Container'
+import { HeaderText } from '@/components/ui_components/HeaderText'
 import backgroundImage from '@/images/background-faqs.jpg'
-import Linkify from 'linkify-react'
 
 const faq = [
   {
@@ -31,17 +31,12 @@ export function Faq () {
         unoptimized
       />
       <Container className="relative">
-        <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2
-            id="faq-title"
-            className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl"
-          >
-            Frequently asked questions
-          </h2>
-        </div>
+        <HeaderText
+          text="Frequently asked questions"
+        />
         <ul
           role="list"
-          className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3"
+          className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-2"
         >
           {faq.map((qAndA) => (
             <li key={qAndA.question}>
@@ -49,7 +44,7 @@ export function Faq () {
                 {qAndA.question}
               </h3>
               <p className="mt-4 text-sm text-slate-700">
-                  {qAndA.answer}
+                {qAndA.answer}
               </p>
             </li>
           ))}

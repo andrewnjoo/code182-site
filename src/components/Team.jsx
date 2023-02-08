@@ -4,6 +4,7 @@ import Image from 'next/image'
 
 import teamMember1 from '@/images/team-member-1.jpg'
 import teamMember2 from '@/images/team-member-2.png'
+import { HeaderText } from './ui_components/HeaderText'
 
 const people = [
   {
@@ -22,11 +23,9 @@ export function Team() {
   return (
     <Container className="pt-10 pb-8 text-center lg:pt-16" id="team">
       <div id="aboutus"></div>
-      <div className="flex mx-auto max-w-2xl md:text-center md:justify-center">
-          <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
-            Team
-          </h2>
-        </div>
+      <HeaderText
+        text="Team"
+      />
       <div className="mx-auto mt-6 flex max-w-2xl flex-col text-lg text-slate-700">
         We are a team of passionate developers dedicated to finding solutions to
         problems.
