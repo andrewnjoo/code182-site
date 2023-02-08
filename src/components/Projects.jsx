@@ -1,105 +1,32 @@
+import React from 'react'
 import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
 
-const features = [
+const defaultFeatures = [
   {
     name: 'Expense Tracker | WIP',
     summary: 'Stay on top of your expenses.',
     description:
       'Keep on track of your expenses and plan a budget for the future.',
     image: '',
-    icon: function ReportingIcon() {
-      return '💰'
-    },
+    icon: () => '💰',
+    selected: true,
   },
   {
     name: 'Book Review App | WIP',
     summary: 'Never lose track of your books again.',
     description: 'Keep track of your books and their reviews.',
     image: '',
-    icon: function InventoryIcon() {
-      return '📕'
-    },
+    icon: () => '📚',
+    selected: false,
   },
 ]
 
-function Feature({ feature, isActive, className, ...props }) {
-  return (
-    <div
-      className={clsx(className, !isActive && 'opacity-75 hover:opacity-100')}
-      {...props}
-      id="projects"
-    >
-      <div
-        className={clsx(
-          'mx-auto w-9 rounded-lg',
-          isActive ? 'bg-blue-600' : 'bg-slate-500'
-        )}
-      >
-        <feature.icon />
-      </div>
-      <h3
-        className={clsx(
-          'mt-6 text-center text-sm font-medium',
-          isActive ? 'text-blue-600' : 'text-slate-600'
-        )}
-      >
-        {feature.name}
-      </h3>
-      <p className="mt-2 text-center font-display text-xl text-slate-900">
-        {feature.summary}
-      </p>
-      <p className="mt-4 text-center text-sm text-slate-600">
-        {feature.description}
-      </p>
-    </div>
-  )
-}
+export function Projects () {
+  const [features, setFeatures] = React.useState([...defaultFeatures])
 
-function FeaturesMobile() {
-  return (
-    <div className="-mx-4 mt-20 flex flex-col gap-y-10 overflow-hidden px-4 sm:-mx-6 sm:px-6 lg:hidden">
-      {features.map((feature) => (
-        <div key={feature.name}>
-          <Feature feature={feature} className="mx-auto max-w-2xl" isActive />
-        </div>
-      ))}
-    </div>
-  )
-}
-
-function FeaturesDesktop() {
-  return (
-    <Tab.Group as="div" className="hidden lg:mt-20 lg:block">
-      {({ selectedIndex }) => (
-        <>
-          <Tab.List className="grid grid-cols-2 gap-x-8 place-self-center">
-            {features.map((feature, featureIndex) => (
-              <Feature
-                key={feature.name}
-                feature={{
-                  ...feature,
-                  name: (
-                    <Tab className="[&:not(:focus-visible)]:focus:outline-none">
-                      <span className="absolute inset-0" />
-                      {feature.name}
-                    </Tab>
-                  ),
-                }}
-                isActive={featureIndex === selectedIndex}
-                className="relative"
-              />
-            ))}
-          </Tab.List>
-        </>
-      )}
-    </Tab.Group>
-  )
-}
-
-export function Projects() {
   return (
     <section
       id="projects"
@@ -112,9 +39,84 @@ export function Projects() {
             Projects
           </h2>
         </div>
-        <FeaturesMobile />
-        <FeaturesDesktop />
+        <Features features={features} setFeatures={setFeatures} />
       </Container>
     </section>
+  )
+}
+
+function Features ({ features, setFeatures }) {
+  return (
+    <ul
+      role="list"
+      className="mt-12 flex flex-col md:flex-row md:justify-center"
+    >
+      {features.map((feature) => (
+        <li key={feature.name} className="mx-6 my-4">
+          <Feature
+            feature={feature}
+            isActive={feature.selected}
+            setFeatures={setFeatures}
+          />
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+function Feature ({ feature, isActive, className, setFeatures, ...props }) {
+  const handleClick = () => {
+    setFeatures((features) =>
+      features.map((f) => {
+        if (f.name === feature.name) {
+          return {
+            ...f,
+            selected: true,
+          }
+        }
+        return {
+          ...f,
+          selected: false,
+        }
+      })
+    )
+  }
+
+  return (
+    <a
+      onClick={(event) => {
+        event.preventDefault()
+        handleClick()
+      }}
+    >
+      <div
+        className={clsx(className, !isActive && 'opacity-75 hover:opacity-100')}
+        {...props}
+        id="projects"
+      >
+        <div
+          className={clsx(
+            'mx-auto w-9 rounded-lg',
+            isActive ? 'bg-blue-600' : 'bg-slate-500'
+          )}
+        >
+          <feature.icon />
+        </div>
+        <h3
+          className={clsx(
+            'mt-6 text-center text-sm font-medium',
+            isActive ? 'text-blue-600' : 'text-slate-600'
+          )}
+        >
+          {feature.name}
+        </h3>
+        <p className="mt-2 text-center font-display text-xl text-slate-900">
+          {feature.summary}
+        </p>
+        <p className="mt-4 text-center text-sm text-slate-600">
+          {feature.description}
+        </p>
+      </div>
+    </a>
   )
 }

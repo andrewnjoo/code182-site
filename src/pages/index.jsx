@@ -4,7 +4,7 @@ import { Header } from '@/components/Header'
 import { AboutUs } from '@/components/AboutUs'
 import { Team } from '@/components/Team'
 import { Projects } from '@/components/Projects'
-import { Faqs } from '@/components/Faqs'
+import { Faq } from '@/components/Faq'
 import { Footer } from '@/components/Footer'
 
 export default function Home() {
@@ -19,7 +19,7 @@ export default function Home() {
         <AboutUs />
         <Team />
         <Projects />
-        <Faqs />
+        <Faq />
       </main>
       <Footer />
     </>
