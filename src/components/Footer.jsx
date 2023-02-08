@@ -3,7 +3,7 @@ import { BsTwitter, BsGithub, BsYoutube } from 'react-icons/bs'
 
 import { Container } from '@/components/Container'
 import { Logo } from '@/components/Logo'
-import { NavLink } from '@/components/NavLink'
+import { NavLinks } from '@/components/NavLinks'
 
 const socialLinks = [
   {
@@ -31,9 +31,7 @@ export function Footer () {
           <Logo className="mx-auto h-10 w-auto" />
           <nav className="mt-10 text-sm" aria-label="quick links">
             <div className="-my-1 flex justify-center gap-x-6">
-              <NavLink href="#aboutus">About Us</NavLink>
-              <NavLink href="#projects">Projects</NavLink>
-              <NavLink href="#faq">FAQ</NavLink>
+              <NavLinks />
             </div>
           </nav>
         </div>

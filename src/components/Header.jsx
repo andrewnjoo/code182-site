@@ -5,9 +5,9 @@ import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
 import { Logo } from '@/components/Logo'
-import { NavLink } from '@/components/NavLink'
+import { NavLinks } from '@/components/NavLinks'
 
-function MobileNavLink({ href, children }) {
+function MobileNavLink ({ href, children }) {
   return (
     <Popover.Button as={Link} href={href} className="block w-full p-2">
       {children}
@@ -15,7 +15,7 @@ function MobileNavLink({ href, children }) {
   )
 }
 
-function MobileNavIcon({ open }) {
+function MobileNavIcon ({ open }) {
   return (
     <svg
       aria-hidden="true"
@@ -42,7 +42,7 @@ function MobileNavIcon({ open }) {
   )
 }
 
-function MobileNavigation() {
+function MobileNavigation () {
   return (
     <Popover>
       <Popover.Button
@@ -76,10 +76,7 @@ function MobileNavigation() {
             as="div"
             className="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5"
           >
-            <MobileNavLink href="#aboutus">About Us</MobileNavLink>
-            <MobileNavLink href="#team">Team</MobileNavLink>
-            <MobileNavLink href="#projects">Projects</MobileNavLink>
-            <MobileNavLink href="#faq">FAQ</MobileNavLink>
+            <NavLinks />
           </Popover.Panel>
         </Transition.Child>
       </Transition.Root>
@@ -87,7 +84,7 @@ function MobileNavigation() {
   )
 }
 
-export function Header() {
+export function Header () {
   return (
     <header className="py-10">
       <Container>
@@ -97,10 +94,7 @@ export function Header() {
               <Logo className="h-10 w-auto" />
             </Link>
             <div className="hidden md:flex md:gap-x-6">
-              <NavLink href="#aboutus">About Us</NavLink>
-              <NavLink href="#team">Team</NavLink>
-              <NavLink href="#projects">Projects</NavLink>
-              <NavLink href="#faq">FAQ</NavLink>
+              <NavLinks />
             </div>
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
