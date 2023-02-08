@@ -30,6 +30,7 @@ function Feature({ feature, isActive, className, ...props }) {
     <div
       className={clsx(className, !isActive && 'opacity-75 hover:opacity-100')}
       {...props}
+      id="projects"
     >
       <div
         className={clsx(

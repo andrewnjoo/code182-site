@@ -7,15 +7,17 @@ export function AboutUs() {
   return (
     <Container className="pt-10 pb-8 text-center lg:pt-16">
       <div id="aboutus"></div>
-      <h1 className="mx-auto max-w-4xl font-display text-xl font-medium tracking-tight text-slate-900 sm:text-5xl">
-        About us
-      </h1>
-      <p className="mx-auto mt-6 flex max-w-2xl flex-col text-lg text-slate-700">
-        code182 makes stuff.
-      </p>
-      <p className="mt-6 flex justify-center">
+        <div className="flex mx-auto max-w-2xl md:text-center md:justify-center">
+          <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
+            About Us
+          </h2>
+        </div>
+      <div className="mx-auto mt-6 flex max-w-2xl flex-col text-lg text-slate-700">
+        code182 is a maker collective that helps solve problems using technology.
+      </div>
+      <div className="mt-6 flex justify-center">
         <Image src={devBackground} alt="Code 182" width={500} />
-      </p>
+      </div>
     </Container>
   )
 }
