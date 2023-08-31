@@ -12,7 +12,7 @@ export function AboutUs() {
         text="About Us"
       />
       <div className="mx-auto mt-6 flex max-w-2xl flex-col text-lg text-slate-700">
-        code182 is a maker collective based in Fremont, CA.
+        code182 is web development agency based in Fremont, CA.
       </div>
       <div className="mt-6 flex justify-center">
         <Image src={devBackground} alt="Code 182" width={500} />
